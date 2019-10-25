@@ -21,8 +21,8 @@ public OnClientPutInServer(int client)
 
 public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3])
 {
-	if(!IsClientValid(attacker) || !IsClientValid(victim))
-		return Plugin_Handled;
+	if (damagetype & DMG_FALL)
+		return Plugin_Continue;
 
 	int attackerUserId = attacker;
 	int victimUserId = victim;
